@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TowerRotation : MonoBehaviour
 {
-    public float rSpeed = 150;
+    internal float rSpeed = 150;
 
     void Start()
     {

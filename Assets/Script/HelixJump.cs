@@ -10,7 +10,7 @@ public class HelixJump : MonoBehaviour
     [SerializeField] private Text lable, lable2, lable3;
 
     [SerializeField] private GameObject panel, panel2;
-    public TowerRotation sTower;
+    [SerializeField] internal TowerRotation sTower;
 
     void OnCollisionEnter(Collision collision)
     {
