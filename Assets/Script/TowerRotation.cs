@@ -1,22 +1,20 @@
 using UnityEngine;
-
-public class TowerRotation : MonoBehaviour
+using NTC.Global.Cache;
+public class TowerRotation : NightCache , INightFixedRun, INightInit
 {
     internal float rSpeed = 150;
 
-    void Start()
+    public void Init()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void FixedUpdate()
+    public void FixedRun()
     {
-
         if (Input.GetMouseButton(0))
         {
             float mouseX = Input.GetAxisRaw("Mouse X");
             transform.Rotate(0, mouseX * rSpeed * Time.deltaTime, 0);
         }
-
     }
 }

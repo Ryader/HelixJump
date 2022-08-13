@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using NTC.Global.Cache;
 
-public class HelixJump : MonoBehaviour
+public class HelixJump : NightCache, INightFixedRun
 {
     [Header("Отскок игрока")]
     [SerializeField] private Rigidbody ballRB;
@@ -26,7 +27,8 @@ public class HelixJump : MonoBehaviour
         
         ballRB.velocity = new Vector3(ballRB.velocity.x, force, ballRB.velocity.z);
         audio.PlayOneShot(_audio);
-        if (collision.gameObject.tag == "PlatformD")
+
+        if (collision.gameObject.CompareTag("PlatformD"))
         {
             audio.PlayOneShot(_audioD);
             panel.SetActive(true);
@@ -37,7 +39,7 @@ public class HelixJump : MonoBehaviour
         }
        
 
-        if (collision.gameObject.tag == "Finish")
+        if (collision.gameObject.CompareTag("Finish"))
         {
             panel2.SetActive(true);
             force = 0;
@@ -48,7 +50,7 @@ public class HelixJump : MonoBehaviour
         }
     }
 
-    void Update()
+    public void FixedRun()
     {
         lable.text = score.ToString();
         lable2.text = score.ToString();
@@ -61,4 +63,5 @@ public class HelixJump : MonoBehaviour
         audio.PlayOneShot(_audioScore);
     }
 
+   
 }
