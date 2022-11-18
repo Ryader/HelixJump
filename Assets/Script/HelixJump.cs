@@ -63,5 +63,4 @@ public class HelixJump : NightCache, INightFixedRun
         audio.PlayOneShot(_audioScore);
     }
 
-   
 }
